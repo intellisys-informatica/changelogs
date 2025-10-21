@@ -30,9 +30,11 @@ Os changelogs documentam:
 
 Cada arquivo de changelog segue uma estrutura padronizada:
 
-1. **O que foi alterado** - Resumo e detalhes das alterações
-2. **Banco de dados** - Scripts SQL necessários
-3. **Configurações necessárias** - Passos para configuração após deploy
+1. **Cabeçalho** - Nome do sistema e número da versão
+2. **Data de atualização** - Data da última modificação do changelog (formato: *Atualizado em: DD/MM/AAAA*)
+3. **O que foi alterado** - Resumo e detalhes das alterações
+4. **Banco de dados** - Scripts SQL necessários
+5. **Configurações necessárias** - Passos para configuração após deploy
 
 ## Convenções
 
@@ -40,3 +42,4 @@ Cada arquivo de changelog segue uma estrutura padronizada:
 - Utiliza emojis e ícones para facilitar identificação visual
 - Inclui detalhes técnicos e instruções de configuração
 - Versionamento semântico no formato major.minor.patch.build
+- **Encoding**: Todos os arquivos devem ser salvos em **UTF-8** para garantir a correta exibição de caracteres especiais e emojis
