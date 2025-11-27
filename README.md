@@ -30,16 +30,111 @@ Os changelogs documentam:
 
 Cada arquivo de changelog segue uma estrutura padronizada:
 
-1. **Cabeçalho** - Nome do sistema e número da versão
-2. **Data de atualização** - Data da última modificação do changelog (formato: *Atualizado em: DD/MM/AAAA*)
-3. **O que foi alterado** - Resumo e detalhes das alterações
-4. **Banco de dados** - Scripts SQL necessários
-5. **Configurações necessárias** - Passos para configuração após deploy
+### Estrutura Obrigatória
+
+```markdown
+# NomeSistema
+
+# :file_folder: X.XX.XX.XX
+
+## :memo: O que foi alterado?
+
+<details open>
+<summary>Resumo</summary>
+
+- :star: Item novo 1
+- :star: Item novo 2
+- :warning: Correção 1
+- :arrow_up: Melhoria 1
+
+</details>
+
+:star: Novo
+:warning: Correção
+:arrow_up: Melhoria
+
+<details open>
+<summary>Detalhes</summary>
+
+### Título da Feature/Correção
+
+:star: Breve descrição
+
+Detalhamento completo da alteração...
+
+### Outra Alteração
+
+:warning: Breve descrição
+
+Detalhamento da correção...
+
+</details>
+
+## :cd: Banco de dados
+
+Não houve alteração no banco de dados.
+OU
+Descrição das alterações no banco de dados.
+
+<details open>
+<summary>Resumo</summary>
+</details>
+
+<details open>
+<summary>Detalhes</summary>
+</details>
+
+<details open>
+<summary>Scripts</summary>
+</details>
+
+## :wrench: Configurações necessárias
+
+Descrição das configurações necessárias após deploy.
+```
+
+### Componentes da Estrutura
+
+1. **Cabeçalho**
+   - Nome do sistema (ex: `# ICRMWSREST`)
+   - Versão com emoji (ex: `# :file_folder: 09.92.48.11`)
+
+2. **Seção "O que foi alterado?"**
+   - Usar `## :memo: O que foi alterado?`
+   - **Resumo** dentro de `<details open>` com lista de itens usando emojis:
+     - `:star:` para novos itens
+     - `:warning:` para correções
+     - `:arrow_up:` para melhorias
+   - **Legenda de emojis** (obrigatória):
+     ```
+     :star: Novo
+     :warning: Correção
+     :arrow_up: Melhoria
+     ```
+   - **Detalhes** dentro de `<details open>` com:
+     - Subtítulos para cada alteração (usando `###`)
+     - Emoji no início de cada item (`:star:`, `:warning:`, ou `:arrow_up:`)
+     - Descrição detalhada
+
+3. **Seção "Banco de dados"**
+   - Usar `## :cd: Banco de dados`
+   - Informar se houve ou não alterações
+   - Incluir 3 blocos `<details open>` vazios ou preenchidos:
+     - Resumo
+     - Detalhes
+     - Scripts
+
+4. **Seção "Configurações necessárias"**
+   - Usar `## :wrench: Configurações necessárias`
+   - Detalhar todos os passos de configuração, parâmetros, testes e dependências
 
 ## Convenções
 
-- Alterações são categorizadas por tipo (novo, correção, melhoria)
-- Utiliza emojis e ícones para facilitar identificação visual
+- **IMPORTANTE**: NÃO usar `### Novas Funcionalidades :star:` como título de seção
+- Os emojis devem ser usados no início de cada item da lista, não como parte de títulos de seção
+- Alterações são categorizadas por tipo no resumo e nos detalhes
+- Utiliza emojis (:star:, :warning:, :arrow_up:) para facilitar identificação visual
 - Inclui detalhes técnicos e instruções de configuração
 - Versionamento semântico no formato major.minor.patch.build
 - **Encoding**: Todos os arquivos devem ser salvos em **UTF-8** para garantir a correta exibição de caracteres especiais e emojis
+- Sempre incluir os 3 blocos `<details open>` na seção de banco de dados, mesmo que vazios
