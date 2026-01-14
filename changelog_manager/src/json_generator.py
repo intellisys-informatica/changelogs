@@ -2,6 +2,7 @@
 Módulo para gerar arquivo JSON estruturado a partir dos resultados do banco
 """
 import json
+import sys
 from pathlib import Path
 
 
@@ -22,14 +23,16 @@ class JsonGenerator:
             # Diretório padrão: raiz do projeto
             self.output_dir = Path(__file__).parent.parent
 
-    def generate_json(self, versao, data_results, output_filename='output.json'):
+    def generate_json(self, versao, data_results, modo='ciclo', output_filename=None):
         """
-        Gera arquivo JSON estruturado
+        Gera JSON estruturado (retorna dados, opcionalmente salva arquivo)
 
         Args:
             versao (str): Versão do changelog (ex: "09.91.47.20")
             data_results (list): Lista de dicionários com dados do banco
-            output_filename (str): Nome do arquivo de saída
+            modo (str): Modo de operação ('ciclo' ou 'tarefa')
+            output_filename (str, optional): Nome do arquivo de saída.
+                                            Se None, não salva arquivo (apenas retorna dados)
 
         Returns:
             dict: Estrutura JSON gerada
@@ -78,16 +81,21 @@ class JsonGenerator:
         # Estrutura final do JSON
         output_data = {
             'versao': versao,
+            'modo': modo,
             'novidades': novidades
         }
 
-        # Salva o arquivo JSON
-        output_path = self.output_dir / output_filename
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(output_data, f, ensure_ascii=False, indent=2)
+        # Salva o arquivo JSON apenas se output_filename for fornecido
+        if output_filename:
+            output_path = self.output_dir / output_filename
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-        print(f"\nJSON gerado com sucesso: {output_path}")
-        print(f"Total de novidades: {len(novidades)}")
+            print(f"\nJSON gerado com sucesso: {output_path}", file=sys.stderr)
+            print(f"Total de novidades: {len(novidades)}", file=sys.stderr)
+        else:
+            # Modo stdout: apenas log em stderr
+            print(f"Total de novidades: {len(novidades)}", file=sys.stderr)
 
         return output_data
 
@@ -116,21 +124,25 @@ class JsonGenerator:
 
     def display_summary(self, json_data):
         """
-        Exibe um resumo do JSON gerado
+        Exibe um resumo do JSON gerado (em stderr para não interferir com stdout)
 
         Args:
             json_data (dict): Dados do JSON
         """
-        print("\n" + "=" * 60)
-        print(f"RESUMO - Versão: {json_data['versao']}")
-        print("=" * 60)
+        print("\n" + "=" * 60, file=sys.stderr)
+        print(f"RESUMO - Versão: {json_data['versao']} (Modo: {json_data.get('modo', 'N/A')})",
+              file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
 
         for idx, novidade in enumerate(json_data['novidades'], 1):
-            print(f"\n{idx}. Sistema: {novidade['sistema']}")
-            print(f"   Resumo: {novidade['resumo'][:80]}...")
+            print(f"\n{idx}. Sistema: {novidade['sistema']}", file=sys.stderr)
+            resumo = novidade['resumo'][:80]
+            if len(novidade['resumo']) > 80:
+                resumo += "..."
+            print(f"   Resumo: {resumo}", file=sys.stderr)
             if 'numeroTarefa' in novidade:
-                print(f"   Tarefa: {novidade['numeroTarefa']}")
+                print(f"   Tarefa: {novidade['numeroTarefa']}", file=sys.stderr)
 
-        print("\n" + "=" * 60)
-        print(f"Total: {len(json_data['novidades'])} novidade(s)")
-        print("=" * 60 + "\n")
+        print("\n" + "=" * 60, file=sys.stderr)
+        print(f"Total: {len(json_data['novidades'])} novidade(s)", file=sys.stderr)
+        print("=" * 60 + "\n", file=sys.stderr)

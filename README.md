@@ -56,19 +56,17 @@ Cada arquivo de changelog segue uma estrutura padronizada:
 <details open>
 <summary>Detalhes</summary>
 
-### Título da Feature/Correção
-
-:star: Breve descrição
+:star: Item novo 1
 
 Detalhamento completo da alteração...
 
-### Outra Alteração
-
-:warning: Breve descrição
+:warning: Correção 1
 
 Detalhamento da correção...
 
 </details>
+
+---
 
 ## :cd: Banco de dados
 
@@ -87,6 +85,8 @@ Descrição das alterações no banco de dados.
 <details open>
 <summary>Scripts</summary>
 </details>
+
+---
 
 ## :wrench: Configurações necessárias
 
@@ -112,7 +112,6 @@ Descrição das configurações necessárias após deploy.
      :arrow_up: Melhoria
      ```
    - **Detalhes** dentro de `<details open>` com:
-     - Subtítulos para cada alteração (usando `###`)
      - Emoji no início de cada item (`:star:`, `:warning:`, ou `:arrow_up:`)
      - Descrição detalhada
 
@@ -138,3 +137,175 @@ Descrição das configurações necessárias após deploy.
 - Versionamento semântico no formato major.minor.patch.build
 - **Encoding**: Todos os arquivos devem ser salvos em **UTF-8** para garantir a correta exibição de caracteres especiais e emojis
 - Sempre incluir os 3 blocos `<details open>` na seção de banco de dados, mesmo que vazios
+
+## Tools
+
+### Changelog Manager - Automação de Documentação
+
+O projeto inclui uma ferramenta Python ([changelog_manager](changelog_manager/)) que automatiza a geração de changelogs a partir do banco de dados SQL Server.
+
+#### Modos de Operação
+
+O Changelog Manager suporta dois modos de operação:
+
+**1. Modo Ciclo** - Documenta todas as tarefas de um ciclo completo
+**2. Modo Tarefa** - Documenta uma tarefa individual
+
+#### Comandos Disponíveis
+
+##### Adicionar Tarefa Individual
+
+Para adicionar uma tarefa específica ao changelog:
+
+```
+Claude, adicionar a tarefa {tarefaId} ao changelog, versão: {versao}
+```
+
+**Exemplo:**
+```
+Claude, adicionar a tarefa 12345 ao changelog, versão: 09.92.48.11
+```
+
+##### Atualizar Documentação de Ciclo Completo
+
+Para gerar automaticamente os arquivos de changelog de um ciclo completo:
+
+```
+Claude, atualizar documentação. ciclo: {codigo}, versão: {NomeVersao}
+```
+
+**Exemplo:**
+```
+Claude, atualizar documentação. ciclo: 124, versão: 09.92.48.11
+```
+
+#### Processo Executado
+
+##### Modo Tarefa Individual
+
+Quando o comando de adicionar tarefa individual é recebido:
+
+1. **Executar o script Python no modo tarefa**
+   ```bash
+   cd changelog_manager
+   python src/main.py --modo tarefa --tarefa-id {tarefaId} --versao "{versao}"
+   ```
+
+2. **Receber JSON em stdout** (não gera arquivo físico)
+   - O Python retorna o JSON diretamente via stdout:
+     ```json
+     {
+       "versao": "XX.XX.XX.XX",
+       "modo": "tarefa",
+       "novidades": [
+         {
+           "sistema": "NomeSistema",
+           "resumo": "Descrição resumida",
+           "detalhes": "Descrição completa",
+           "numeroTarefa": "12345"
+         }
+       ]
+     }
+     ```
+
+3. **Processar JSON e gerenciar arquivo .md**
+   - Identificar sistema e versão da tarefa
+   - Verificar se arquivo `{Sistema}/{versao}.md` já existe:
+     - **Se EXISTE**: Adicionar tarefa ao arquivo existente (append lógico)
+     - **Se NÃO EXISTE**: Criar novo arquivo seguindo o template padrão
+   - Classificar tarefa automaticamente como :star: (Novo), :warning: (Correção) ou :arrow_up: (Melhoria)
+   - Adicionar tarefa nas seções de Resumo e Detalhes
+   - Evitar duplicação de tarefas
+   - Salvar arquivo em UTF-8
+
+4. **Apresentar resumo**
+   - Informar arquivo criado ou atualizado
+   - Confirmar tarefa adicionada
+
+##### Modo Ciclo Completo
+
+Quando o comando de atualização de ciclo é recebido:
+
+1. **Executar o script Python no modo ciclo**
+   ```bash
+   cd changelog_manager
+   python src/main.py --modo ciclo --ciclo {codigo} --versao "{NomeVersao}"
+   ```
+
+2. **Receber JSON em stdout** (não gera arquivo físico)
+   - O JSON contém todas as tarefas do ciclo agrupadas:
+     ```json
+     {
+       "versao": "XX.XX.XX.XX",
+       "modo": "ciclo",
+       "novidades": [
+         {
+           "sistema": "NomeSistema1",
+           "resumo": "Descrição resumida",
+           "detalhes": "Descrição completa",
+           "numeroTarefa": "12345"
+         },
+         {
+           "sistema": "NomeSistema2",
+           "resumo": "Outra descrição",
+           "detalhes": "Outros detalhes",
+           "numeroTarefa": "12346"
+         }
+       ]
+     }
+     ```
+
+3. **Processar novidades e gerar/atualizar arquivos .md**
+   - Agrupar novidades por sistema
+   - Para cada sistema:
+     - Verificar se arquivo `{Sistema}/{versao}.md` já existe
+     - **Se EXISTE**: Adicionar tarefas ao arquivo existente
+     - **Se NÃO EXISTE**: Criar novo arquivo no formato padrão
+   - Seguir a estrutura obrigatória definida na seção [Estrutura Obrigatória](#estrutura-obrigatória)
+   - Classificar cada novidade como :star: (Novo), :warning: (Correção) ou :arrow_up: (Melhoria)
+   - Incluir todas as seções obrigatórias:
+     - O que foi alterado? (com Resumo e Detalhes)
+     - Banco de dados (com os 3 blocos `<details open>`)
+     - Configurações necessárias
+   - Salvar todos os arquivos em UTF-8
+
+4. **Apresentar resumo das alterações**
+   - Listar arquivos criados/atualizados
+   - Informar número de novidades por sistema
+
+#### Diferenças Entre os Modos
+
+| Aspecto | Modo Tarefa | Modo Ciclo |
+|---------|-------------|------------|
+| **Entrada** | ID de uma tarefa específica | Código do ciclo completo |
+| **Saída** | JSON com uma única tarefa | JSON com todas as tarefas do ciclo |
+| **Uso típico** | Hotfixes, tarefas urgentes, documentação incremental | Release completo de versão |
+| **Comando** | `--modo tarefa --tarefa-id X` | `--modo ciclo --ciclo X` |
+| **Query SQL** | `consulta_tarefa_individual.sql` | `consulta_tarefas.sql` |
+
+#### Comportamento de Arquivos .md
+
+O Claude gerencia automaticamente os arquivos de changelog:
+
+- **Arquivo NÃO existe**: Cria novo arquivo com estrutura completa
+- **Arquivo EXISTE**: Adiciona tarefas preservando conteúdo existente
+- **Duplicação**: Evita adicionar tarefas já documentadas no arquivo
+- **Formatação**: Mantém padrão estabelecido com emojis e estrutura markdown
+
+#### Requisitos
+
+- Python 3.7+ instalado
+- Ambiente virtual configurado no diretório `changelog_manager`
+- Arquivo `.env` configurado com credenciais do banco de dados
+- Queries SQL configuradas:
+  - `changelog_manager/sql/consulta_tarefas.sql` (modo ciclo)
+  - `changelog_manager/sql/consulta_tarefa_individual.sql` (modo tarefa)
+
+#### Observações Importantes
+
+- O Python **não gera arquivos físicos** - retorna JSON em stdout
+- O Claude recebe o JSON em memória e gerencia os arquivos .md
+- Tarefas são automaticamente registradas na tabela `TSK_TarefasDocumentadas` após processamento
+- Validação de tarefas já documentadas ocorre no Python antes do retorno
+
+Para mais detalhes sobre configuração e uso do Changelog Manager, consulte [changelog_manager/README.md](changelog_manager/README.md).

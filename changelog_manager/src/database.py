@@ -89,6 +89,32 @@ class Database:
             self.connection.rollback()
             raise Exception(f"Erro ao executar INSERT: {e}")
 
+    def check_task_documented(self, task_id):
+        """
+        Verifica se tarefa já está na tabela de documentadas
+
+        Args:
+            task_id (str): ID da tarefa
+
+        Returns:
+            bool: True se documentada, False caso contrário
+        """
+        table_name = config.db_table_documentadas
+
+        query = f"""
+            SELECT COUNT(*) as Total
+            FROM {table_name}
+            WHERE NumeroTarefa = ?
+        """
+
+        try:
+            self.cursor.execute(query, (str(task_id),))
+            result = self.cursor.fetchone()
+            return result[0] > 0
+        except Exception as e:
+            print(f"AVISO: Erro ao verificar tarefa documentada {task_id}: {e}")
+            return False
+
     def register_documented_task(self, numero_tarefa, arquivo_md):
         """
         Registra uma tarefa como documentada na tabela de controle
