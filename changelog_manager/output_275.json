@@ -1,0 +1,246 @@
+{
+  "versao": "06.94.50.00",
+  "modo": "ciclo",
+  "novidades": [
+    {
+      "sistema": "SOLICITAÇÃO ",
+      "resumo": " APP SUMERBOL ANDROID WS NUVEM - SOLICITAR CARTÃO PRÓPRIO",
+      "detalhes": "Aguardando API ser criada",
+      "numeroTarefa": 14793
+    },
+    {
+      "sistema": "SOLICITAÇÃO 4603 ",
+      "resumo": " CRIAÇÃO DE EVENTO COMUNICADO AUTOMÁTICO PARA CLIENTES COM CADASTRO INCOMPLETO",
+      "detalhes": "",
+      "numeroTarefa": 15930
+    },
+    {
+      "sistema": "ITASKWEB ",
+      "resumo": " DOCUMENTOS NA TAREFA (2/4) - QUANDO ACAO = INSERIR",
+      "detalhes": "",
+      "numeroTarefa": 16081
+    },
+    {
+      "sistema": "ITASKWEB ",
+      "resumo": " DOCUMENTOS NA TAREFA (4/4) - LISTA DE DOCUMENTO",
+      "detalhes": "",
+      "numeroTarefa": 16083
+    },
+    {
+      "sistema": "IFERIAS",
+      "resumo": "IFERIAS",
+      "detalhes": "Desenvolvimento do iFerias em webdev\r\n\r\n- Além das mesmas funcionalidades implementadas em windev, agora é possível exportar o calendário de férias para uma planilha xlsx.",
+      "numeroTarefa": 16165
+    },
+    {
+      "sistema": "ICRM3 ",
+      "resumo": " COMUNICAÇÃO IBANK",
+      "detalhes": "",
+      "numeroTarefa": 16191
+    },
+    {
+      "sistema": "ITOTEM V2 ",
+      "resumo": " IMPRESSÃO DE CUPOM DE SORTEIO",
+      "detalhes": "Copiado RPT do totem v1 para o v2;\r\nCriado uma classe de chave valor para os layouts de cupons;\r\nCriado a configuração do layout;\r\nExibição do modelo de layout de cupom para exemplo;",
+      "numeroTarefa": 16192
+    },
+    {
+      "sistema": "ICRM3 ",
+      "resumo": " AJUSTES PARA EVENTO NOVO (44)",
+      "detalhes": "",
+      "numeroTarefa": 16203
+    },
+    {
+      "sistema": "ICRMMIBILE ",
+      "resumo": " SUMERBOL - ANDROID - REFATORAR CODIGO",
+      "detalhes": "",
+      "numeroTarefa": 16204
+    },
+    {
+      "sistema": "ICRMWEB ",
+      "resumo": " CUPONS FISCAIS DA TROCA",
+      "detalhes": "Efetuado ajuste na sentença para não trazer registros duplicados.",
+      "numeroTarefa": 16205
+    },
+    {
+      "sistema": "APP ",
+      "resumo": " MAIS BARATO - SOL. 4655: DADOS DE CUPONS DE SORTEIO DIVERGENTE",
+      "detalhes": "Efetuado ajuste na rotina pgCampanhaSorteioLista que havia um where incorreto de status de TrocaSorteio.\r\n",
+      "numeroTarefa": 16206
+    },
+    {
+      "sistema": "TREINAMENTO 01 ",
+      "resumo": " SCRUM",
+      "detalhes": "",
+      "numeroTarefa": 16207
+    },
+    {
+      "sistema": "TREINAMENTO 01 ",
+      "resumo": " SCRUM",
+      "detalhes": "Product Owner: Define o backlog, como será o projeto em questões de design, funcionalidades e etc.\r\nScrum Master: Lidera o time para facilitar que o dev team cumpra com suas atividades\r\nDev Team: Pessoas envolvidas no desenvolvimento.\r\n\r\nEventos: Planejamento, Execução, Inspeção e Entrega\r\n\r\nSprint: Período de 1 mês ou menos\r\nSprint Planning: Duração recomendável máxima de 8 horas, planejamento para definir o Sprint Backlog\r\nDaily: reunião diária de no máximo 15 minutos, para o time de desenvolvimento sincronizar as atividades e criar um plano\r\nSprint Review: executada no final do sprint pra inspecionar ou adaptar o backlog se for necessário\r\nSprint Retrospective: Oportunidade de autoavaliação e criar um plano de melhorias pra aplicar no próximo sprint, só devem estar presente o scrum master e o dev team.\r\n\r\nArtefatos:\r\nProduct Backlog: funcionalidades definidas pelo product owner, deve estar organizada por prioridade.\r\nSprint Backlog: Lista de itens do product backlog que foram escolh",
+      "numeroTarefa": 16208
+    },
+    {
+      "sistema": "02 TREINAMENTO LINGUAGEM W LP1",
+      "resumo": "02 TREINAMENTO LINGUAGEM W LP1",
+      "detalhes": "",
+      "numeroTarefa": 16210
+    },
+    {
+      "sistema": "TREINAMENTO 02 ",
+      "resumo": " LINGUAGEM W LP1",
+      "detalhes": "",
+      "numeroTarefa": 16211
+    },
+    {
+      "sistema": "TREINAMENTO 03 ",
+      "resumo": " WINDEV (I)",
+      "detalhes": "",
+      "numeroTarefa": 16212
+    },
+    {
+      "sistema": "TREINAMENTO 03 ",
+      "resumo": "  WINDEV (I)",
+      "detalhes": "",
+      "numeroTarefa": 16213
+    },
+    {
+      "sistema": "TREINAMENTO 04 ",
+      "resumo": " COMANDOS H",
+      "detalhes": "",
+      "numeroTarefa": 16214
+    },
+    {
+      "sistema": "TREINAMENTO 04 ",
+      "resumo": " COMANDOS H",
+      "detalhes": "",
+      "numeroTarefa": 16215
+    },
+    {
+      "sistema": "TREINAMENTO 05 ",
+      "resumo": " CLASSES",
+      "detalhes": "",
+      "numeroTarefa": 16216
+    },
+    {
+      "sistema": "TREINAMENTO 05 ",
+      "resumo": " CLASSES",
+      "detalhes": "",
+      "numeroTarefa": 16217
+    },
+    {
+      "sistema": "TREINAMENTO 06 ",
+      "resumo": " PROJETO I - DATASANDBOX",
+      "detalhes": "",
+      "numeroTarefa": 16218
+    },
+    {
+      "sistema": "TREINAMENTO 06 ",
+      "resumo": " PROJETO I - PONTUAL",
+      "detalhes": "Colocado navegação semelhante ao do WebDev por uma questão de usabilidade e  para manter constância na UI",
+      "numeroTarefa": 16219
+    },
+    {
+      "sistema": "SOLICITAÇÃO 4657 ",
+      "resumo": " PENTEST 2026 WEB CONVENIO",
+      "detalhes": "Correções realizadas no webdev: \r\n\t- Retirado a exibição de erros de sentenças e colocado como apenas log.\r\n\t- Verificado que variáveis globais que são declaradas na inicialização das páginas/templates, ficam com seus conteúdos expostos no inspecionar da página no navegador. \r\n\r\nNecessário realizar configurações no servidor e motor. As configurações que foram solicitadas no Pentest foram listadas e irei colocar na solicitação do Brazip.",
+      "numeroTarefa": 16220
+    },
+    {
+      "sistema": "ITOTEM V2 ",
+      "resumo": " SOLICITAÇÃO 4660 - NAO PERMITIR REIMPRESSAO DE PREMIOS (SACOLA)",
+      "detalhes": "Inicialmente foi feito o ajuste no clique do brinde para reimpressão, onde é exibido um aviso informativo constando que não é possível reimprimir aquele brinde.\r\n\r\nFoi alterado para não exibir o brinde, ao invés de não imprimir.",
+      "numeroTarefa": 16221
+    },
+    {
+      "sistema": "TREINAMENTO 07 ",
+      "resumo": " TUTORIAL WEBDEV",
+      "detalhes": "",
+      "numeroTarefa": 16225
+    },
+    {
+      "sistema": "TREINAMENTO 07 ",
+      "resumo": " TUTORIAL WEBDEV",
+      "detalhes": "",
+      "numeroTarefa": 16226
+    },
+    {
+      "sistema": "TREINAMENTO 08 ",
+      "resumo": " PROJETO II - DATASANDBOX EM WEBDEV",
+      "detalhes": "",
+      "numeroTarefa": 16227
+    },
+    {
+      "sistema": "TREINAMENTO 08 ",
+      "resumo": " PROJETO II - PONTUAL EM WEBDEV",
+      "detalhes": "",
+      "numeroTarefa": 16228
+    },
+    {
+      "sistema": "ICRM3 ",
+      "resumo": " CRIAÇÃO DA LÓGICA DO PAINEL INTEGRAÇÃO COM BANCO",
+      "detalhes": "",
+      "numeroTarefa": 16233
+    },
+    {
+      "sistema": "WSICRMREST ",
+      "resumo": " LISTA DE FATURAMENTO ",
+      "detalhes": "",
+      "numeroTarefa": 16241
+    },
+    {
+      "sistema": "ICRMMOBILE ",
+      "resumo": " SOLICITAÇÃO 4663 - RETIRAR DADOS BANCÁRIOS DO APP",
+      "detalhes": "Retirado a seção de dados bancários e ajustado o fluxo de cadastro;\r\nForam alterados tanto no APP Android quando no APP IOS;",
+      "numeroTarefa": 16242
+    },
+    {
+      "sistema": "ICRMWEB ",
+      "resumo": " EXIBIÇÃO DO SISTEMA OPERACIONAL NAS MENSAGENS",
+      "detalhes": "",
+      "numeroTarefa": 16256
+    },
+    {
+      "sistema": "PUBLICAÇÃO IOS BRASIL",
+      "resumo": "PUBLICAÇÃO IOS BRASIL",
+      "detalhes": "Efetuado publicação.",
+      "numeroTarefa": 16257
+    },
+    {
+      "sistema": "ICRM3 ",
+      "resumo": " IMPRESSÃO DE BOLETOS",
+      "detalhes": "Adicionado a verificação da coluna CFGINTCODIGO da tabela FatClientes para a geração do relatório RPT_FATURACLIENTEBOLETOIMPRESSOCOMPIX.",
+      "numeroTarefa": 16259
+    },
+    {
+      "sistema": "ICRMIMPRESSOR ",
+      "resumo": " FALTANDO DADOS NO BOLETO PIX",
+      "detalhes": "Efetuado ajuste no RPT RPT_FaturaClienteBoletoImpressoComPix e no CRMBoleto para servir as informações necessárias.\r\n\r\nEspécie DOC = DM\r\n\r\nAceite = N\r\n\r\nCarteira = Preenchido de forma dinâmica\r\n\r\nEspécie Moeda = 09-Real\r\n\r\nAgência/Código Beneficiário = Preenchido de forma dinâmica\r\n\r\nNosso Número = Preenchido de forma dinâmica\r\n\r\nCNPJ = Estava preenchido com CNPJ do Organizado agora este preenchido com o CNPJ do Configura Boleto Integração.\r\n",
+      "numeroTarefa": 16261
+    },
+    {
+      "sistema": "ICRMWEB ",
+      "resumo": " CORRIGIR A IMPRESSÃO DE FATURA",
+      "detalhes": "",
+      "numeroTarefa": 16262
+    },
+    {
+      "sistema": "SOLICITAÇÃO 4624 ",
+      "resumo": " IMPLEMENTAÇÃO DE RELATÓRIO DE  CLIENTES - PAINEL FIDELIZAÇÃO",
+      "detalhes": "1- Foi corrigido a formatação das colunas:\r\n\r\nNASCIMENTO\r\nDATA OPTIN\r\nCADASTRO\r\nDATA ALTERAÇÃO\r\nÚLTIMO ACESSO APLICATIVO\r\n\r\n2- Foi corrigido a informação de que o processo apresentou erro.\r\n\r\n3- Foi acrescentado o filtro de Data Fim enviado da tela PAGE_PainelFidelidade para rotina pgGeraXlsxRelatorio360Fidelizacao.\r\n\r\nOBS1: Necessário gerar a página: PAGE_PainelFidelidade do projeto ICRM.\r\nOBS2: Necessário gerar o CRMImpressor.\r\nOBS3: Necessário efetuar testes juntamente com o cliente para verificar se a funcionalidade atende.",
+      "numeroTarefa": 16263
+    },
+    {
+      "sistema": "SOLICITAÇÃO 4627 ",
+      "resumo": " IMPLEMENTAR RELATÓRIO PARA APOIO ÀS ANÁLISES DE CAMPANHAS",
+      "detalhes": "A função fc_maxconsultaapromocao não estava presente no banco do suporte. Essa função é utilizada por Ricardo na sentença que foi montada. Renata realizou o teste e o relatorio foi gerado normalmente. Não foram feitas alterações no icrm3 e crmboleto.",
+      "numeroTarefa": 16267
+    },
+    {
+      "sistema": "WSICRMREST ",
+      "resumo": " LISTA DE FATURAS INTEGRADAS",
+      "detalhes": "Efetuado criação do endpoint:\r\npainel/v1/fatura\r\n\r\nEndpoint aceita como filtro.\r\nnumeroFaturamento (fixo)\r\nnomeCliente (dinâmico)\r\ndataInicio (dinamico)\r\ndataFinal (dinamico)\r\nvalorMinimo (dinamico)\r\nvalorMaximo (dinamico)",
+      "numeroTarefa": 16271
+    }
+  ]
+}

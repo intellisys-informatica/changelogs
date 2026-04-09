@@ -1,0 +1,66 @@
+{
+  "versao": "06.94.50.00",
+  "modo": "ciclo",
+  "novidades": [
+    {
+      "sistema": "SOLICITAÇÃO 4648 ",
+      "resumo": " ADEQUAÇÃO AO NOVO FORMATO ALFANUMÉRICO DE CNPJ (VIGENTE JULHO/2026)",
+      "detalhes": "Foi enviado para Igor um arquivo zip separada por pastas de cada IDE, onde constam os arquivos .xlsx onde constam os locais de cada projeto. \r\nNesse arquivo também possui um .docx com um resumo geral.",
+      "numeroTarefa": 16184
+    },
+    {
+      "sistema": "SOLICITAÇÃO 4666 ",
+      "resumo": " IMPLEMENTAÇÃO DE CAMPOS DE CONTROLE EM CAMPANHA DO TIPO 33",
+      "detalhes": "Adicionado implementação de campos de controle em Campanha do tipo 33, Na PAGE_FormCampanha configurado o limite de vezes que um cliente pode participar da campanha durante todo o seu período de vigência. Na PAGE_SelectMProdutosCampanha Estabelecido uma trava de segurança para a quantidade de itens brindes beneficiados por cada compra (cupom).",
+      "numeroTarefa": 16268
+    },
+    {
+      "sistema": "SOLICITAÇÃO 4668 ",
+      "resumo": " ERRO NO ENVIO DE NOTIFICAÇÃO PUSH - FALHA NA EXECUÇÃO DA SENTENÇA SQL.",
+      "detalhes": "",
+      "numeroTarefa": 16301
+    },
+    {
+      "sistema": "SOLICITAÇÃO 4667 ",
+      "resumo": " RETORNAR OPÇAO DE ADICIONAR REFERÊNCIA PESSOAL DO APLICATIVO",
+      "detalhes": "Retirado apenas os campos bancários como solicitado !",
+      "numeroTarefa": 16314
+    },
+    {
+      "sistema": "SOLICITAÇÃO 4653 ",
+      "resumo": " MELHORIA EM RELATÓRIO DE TROCAS DE PONTOS E DESCONTOS LOJA A LOJA",
+      "detalhes": "Relatório RPT_PontosTrocadosGeral foi criado e ajustado para incluir as colunas \"Total Compras\" e \"Pontos Gerados\", utilizando a sentença SQL base enviada. Também foi implementada a lógica do checkbox \"Geral\" na tela PAGE_FilterRelPontosTrocados.",
+      "numeroTarefa": 16315
+    },
+    {
+      "sistema": "ICRM3 ",
+      "resumo": " ALTERÇÃO DE GRUPO DE FATURAMENTO DO SUPERMERCADO BRASIL",
+      "detalhes": "O Checkbox \"Altera grupo fat com faturas em aberto\" na tela PAGE_FormOrgCartaoFaturas estava desmarcado e como o cliente tem faturas em aberto, não estava permitindo alterar. \r\n\r\nFoi marcado o combobox e foi possível realizar a alteração normalmente.",
+      "numeroTarefa": 16316
+    },
+    {
+      "sistema": "PUBLICAÇÃO ",
+      "resumo": " IOS - BRASIL",
+      "detalhes": "Efetuado publicação do aplicativo.",
+      "numeroTarefa": 16318
+    },
+    {
+      "sistema": "WEBCONVENIO ",
+      "resumo": " SOLICITAÇÃO 4657 - PENTEST 2026 WEB CONVENIO",
+      "detalhes": "",
+      "numeroTarefa": 16330
+    },
+    {
+      "sistema": "WEBCLIENTE ",
+      "resumo": " SOLICITAÇÃO 4669 - PERMISSÕES DE CONTATO NÃO SALVAM NO CADASTRO DO WEBCLIETNTE RIO DAS ",
+      "detalhes": "Feito os ajustes no envio das informações de aceite de comunicação ao componente webclicmp. Realizado testes no webcliente e no icrm e funcionou corretamente. Necessário gerar apenas o webcliente.",
+      "numeroTarefa": 16336
+    },
+    {
+      "sistema": "ICRM3 ",
+      "resumo": " INTEGRAÇÃO COM ICRMPAINEL",
+      "detalhes": "",
+      "numeroTarefa": 16339
+    }
+  ]
+}
