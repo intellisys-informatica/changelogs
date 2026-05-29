@@ -11,6 +11,39 @@
       --sidebar-width: 280px;
       --base-font-size: 15px;
     }
+
+    /* Margem interna do sidebar */
+    .sidebar {
+      padding: 0 10px;
+    }
+
+    /* Links como bloco com borda lateral */
+    .sidebar-nav ul li a {
+      display: block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border-left: 3px solid transparent;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+    }
+
+    .sidebar-nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    /* Destaque no item ativo */
+    .sidebar-nav ul li a.active {
+      border-left-color: var(--accent);
+      color: var(--accent) !important;
+      font-weight: 600;
+    }
+
+    body[data-theme="light"] .sidebar-nav ul li a.active {
+      background: rgba(21, 101, 192, 0.08);
+    }
+
+    body[data-theme="dark"] .sidebar-nav ul li a.active {
+      background: rgba(74, 158, 255, 0.12);
+    }
   </style>
 </head>
 <body>
