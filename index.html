@@ -98,7 +98,34 @@
           toogleImage: 'url(//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/icons/moon.svg)'
         }
       },
-      plugins: []
+      plugins: [
+        function(hook) {
+          var emojis = {
+            'file_folder': '📁', 'memo': '📝', 'cd': '💿', 'wrench': '🔧',
+            'star': '⭐', 'warning': '⚠️', 'arrow_up': '⬆️',
+            'page_facing_up': '📄', 'books': '📚', 'gear': '⚙️',
+            'white_check_mark': '✅', 'x': '❌', 'bulb': '💡',
+            'rocket': '🚀', 'bug': '🐛', 'lock': '🔒', 'key': '🔑',
+          };
+
+          function replaceEmojis(text) {
+            return text.replace(/:([a-z0-9_]+):/g, function(match, name) {
+              return emojis[name] || match;
+            });
+          }
+
+          hook.doneEach(function() {
+            document.querySelectorAll('.sidebar-nav a').forEach(function(el) {
+              el.childNodes.forEach(function(node) {
+                if (node.nodeType === 3) {
+                  var replaced = replaceEmojis(node.textContent);
+                  if (replaced !== node.textContent) node.textContent = replaced;
+                }
+              });
+            });
+          });
+        }
+      ]
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
