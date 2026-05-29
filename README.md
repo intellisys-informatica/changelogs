@@ -42,9 +42,3 @@ Use o menu lateral para navegar por sistema e versão, ou a busca para localizar
 | [iCRM4Imprime](iCRM4Imprime/09.92.48.00.md) | Impressão do iCRM4 | 09.92.48.00 |
 | [iTotem](iTotem/06.94.50.00.md) | Sistema de totem | 06.94.50.00 |
 
----
-
-## Links úteis
-
-- [Convenções e formato de changelog](convencoes.md) — guia para criação de novos documentos
-- [Ferramenta de automação](changelog_manager/README.md) — geração automática a partir do banco de dados
